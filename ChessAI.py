@@ -147,10 +147,10 @@ def minimax(depth, maximizingPlayer, alpha, beta, board, iterations):
     maxEval = -9999
     minEval = 9999
     moveToMake = None
-    # main minimax
+ 
     if depth == 0 or board.is_checkmate() or board.is_stalemate() or board.is_insufficient_material():
-        #return quiescence(maximizingPlayer, alpha, beta);
         return quiescence(7, maximizingPlayer, alpha, beta, board, iterations)
+    
     legal_moves = list(board.legal_moves)
     if maximizingPlayer:   
         for move in legal_moves:
@@ -193,9 +193,6 @@ def main():
         move = algoRet[1]
         print()
         print("Leaves: " + str(algoRet[2]))
-        # if move is None:
-        #     board.push(list(board.legal_moves)[0])
-        #     print(board)
         board.push(move)
 
     if board.turn:
